@@ -2,7 +2,7 @@ int totalDots; // Variable to store the total number of dots
 int dieSize; // Variable for the size of the die
 
 void setup() {
-    size(500, 300);
+    size(500, 500); // Set a larger size for better visibility
     textAlign(CENTER, CENTER);
     noLoop();
     dieSize = width; // Set die size to cover the whole screen width
@@ -63,8 +63,11 @@ class Die {
     void show() {
         noStroke();
         fill(255);
-        rect(myX, myY, size, size); // Cover the whole screen
-        fill(0);
+        rect(myX, myY, size, size); // Draw the die
+        stroke(0); // Set stroke color for the border
+        noFill();
+        rect(myX, myY, size, size); // Draw a border around the die
+
         float dotSize = size * 0.1; // Calculate dot size based on die size
 
         // Draw the dots based on the die face value
