@@ -1,26 +1,39 @@
+int totalDots; // Variable to store the total number of dots
+int dieSize; // Variable for the size of the die
+
 void setup() {
     size(500, 300);
     textAlign(CENTER, CENTER);
     noLoop();
+    dieSize = width; // Set die size to cover the whole screen width
 }
 
 void draw() {
     background(255);
-    Die bob = new Die(200, 100); // Position the die in the center
+    Die bob = new Die(0, 0, dieSize); // Position the die at the top-left corner
     bob.show();
+    totalDots = bob.getDots(); // Get the total dots from the die
+    displayTotalDots(); // Display the total dots
 }
 
 void mousePressed() {
     redraw();
 }
 
+void displayTotalDots() {
+    fill(0);
+    textSize(32);
+    text("Total Dots: " + totalDots, width / 2, height - 50); // Display total dots
+}
+
 class Die {
     boolean one, two, three, four, five, six;
-    int myX, myY;
+    int myX, myY, size;
 
-    Die(int x, int y) {
+    Die(int x, int y, int s) {
         myX = x;
         myY = y;
+        size = s; // Set the size of the die
         roll();
     }
 
@@ -37,38 +50,51 @@ class Die {
         }
     }
 
+    int getDots() {
+        if (one) return 1;
+        if (two) return 2;
+        if (three) return 3;
+        if (four) return 4;
+        if (five) return 5;
+        if (six) return 6;
+        return 0; // Fallback (should never happen)
+    }
+
     void show() {
         noStroke();
         fill(255);
-        rect(myX, myY, 50, 50);
+        rect(myX, myY, size, size); // Cover the whole screen
         fill(0);
+        float dotSize = size * 0.1; // Calculate dot size based on die size
+
+        // Draw the dots based on the die face value
         if (one) {
-            ellipse(myX + 25, myY + 25, 10, 10);
+            ellipse(myX + size / 2, myY + size / 2, dotSize, dotSize);
         } else if (two) {
-            ellipse(myX + 10, myY + 10, 10, 10);
-            ellipse(myX + 40, myY + 40, 10, 10);
+            ellipse(myX + size * 0.2, myY + size * 0.2, dotSize, dotSize);
+            ellipse(myX + size * 0.8, myY + size * 0.8, dotSize, dotSize);
         } else if (three) {
-            ellipse(myX + 10, myY + 40, 10, 10);
-            ellipse(myX + 40, myY + 10, 10, 10);
-            ellipse(myX + 25, myY + 25, 10, 10);
+            ellipse(myX + size * 0.2, myY + size * 0.8, dotSize, dotSize);
+            ellipse(myX + size * 0.8, myY + size * 0.2, dotSize, dotSize);
+            ellipse(myX + size / 2, myY + size / 2, dotSize, dotSize);
         } else if (four) {
-            ellipse(myX + 10, myY + 10, 10, 10);
-            ellipse(myX + 40, myY + 40, 10, 10);
-            ellipse(myX + 40, myY + 10, 10, 10);
-            ellipse(myX + 10, myY + 40, 10, 10);
+            ellipse(myX + size * 0.2, myY + size * 0.2, dotSize, dotSize);
+            ellipse(myX + size * 0.8, myY + size * 0.8, dotSize, dotSize);
+            ellipse(myX + size * 0.8, myY + size * 0.2, dotSize, dotSize);
+            ellipse(myX + size * 0.2, myY + size * 0.8, dotSize, dotSize);
         } else if (five) {
-            ellipse(myX + 10, myY + 10, 10, 10);
-            ellipse(myX + 40, myY + 40, 10, 10);
-            ellipse(myX + 40, myY + 10, 10, 10);
-            ellipse(myX + 10, myY + 40, 10, 10);
-            ellipse(myX + 25, myY + 25, 10, 10);
+            ellipse(myX + size * 0.2, myY + size * 0.2, dotSize, dotSize);
+            ellipse(myX + size * 0.8, myY + size * 0.8, dotSize, dotSize);
+            ellipse(myX + size * 0.8, myY + size * 0.2, dotSize, dotSize);
+            ellipse(myX + size * 0.2, myY + size * 0.8, dotSize, dotSize);
+            ellipse(myX + size / 2, myY + size / 2, dotSize, dotSize);
         } else if (six) {
-            ellipse(myX + 10, myY + 10, 10, 10);
-            ellipse(myX + 40, myY + 40, 10, 10);
-            ellipse(myX + 40, myY + 10, 10, 10);
-            ellipse(myX + 10, myY + 40, 10, 10);
-            ellipse(myX + 10, myY + 25, 10, 10);
-            ellipse(myX + 40, myY + 25, 10, 10);
+            ellipse(myX + size * 0.2, myY + size * 0.2, dotSize, dotSize);
+            ellipse(myX + size * 0.8, myY + size * 0.8, dotSize, dotSize);
+            ellipse(myX + size * 0.8, myY + size * 0.2, dotSize, dotSize);
+            ellipse(myX + size * 0.2, myY + size * 0.8, dotSize, dotSize);
+            ellipse(myX + size * 0.2, myY + size / 2, dotSize, dotSize);
+            ellipse(myX + size * 0.8, myY + size / 2, dotSize, dotSize);
         }
     }
 }
