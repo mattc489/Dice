@@ -6,7 +6,6 @@ void setup()
 }
 void draw()
 {
-  //your code here
   {\
     for( int x = 10; x < 450; x = x+60){
     Die bob = new Die(100,100);
@@ -20,7 +19,6 @@ void mousePressed()
 }
 class Die //models one single dice cube
 {
-  //member variable declarations here
   boolean one;
   boolean two;
   boolean three;
@@ -30,7 +28,6 @@ class Die //models one single dice cube
   int myX, myY;
   Die(int x, int y) //constructor
   {
-    //variable initializations here
     roll();
     myX = x;
     myY = y;
