@@ -71,6 +71,7 @@ class Die {
         float dotSize = size * 0.1; // Calculate dot size based on die size
 
         // Draw the dots based on the die face value
+        fill(0); // Set dot color to black
         if (one) {
             ellipse(myX + size / 2, myY + size / 2, dotSize, dotSize);
         } else if (two) {
