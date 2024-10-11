@@ -1,6 +1,6 @@
 void setup()
 {
-  size(200, 200);
+  size(500, 300);
   textAlign(CENTER, CENTER);
   noLoop();
 }
@@ -8,7 +8,7 @@ void draw()
 {
   {\
     for( int x = 10; x < 450; x = x+60){
-    Die bob = new Die(100,100);
+    Die bob = new Die(50,50);
     bob.show();
 }
     }
