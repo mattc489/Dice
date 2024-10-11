@@ -6,10 +6,8 @@ void setup() {
 
 void draw() {
     background(255);
-    for (int x = 10; x < 450; x += 60) {
-        Die bob = new Die(x, 50); // Adjusted position
-        bob.show();
-    }
+    Die bob = new Die(200, 100); // Position the die in the center
+    bob.show();
 }
 
 void mousePressed() {
