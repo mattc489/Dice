@@ -58,9 +58,9 @@ class Die //models one single dice cube
   {
     //your code here
     noStroke();
-    fill (255);
+    fill (255,255,255);
     rect( myX, myY,50,50);
-    fill(0);
+    fill(0,0,0);
     if( one == true){
      ellipse( myX + 25, myY + 25, 10,10);
     }
