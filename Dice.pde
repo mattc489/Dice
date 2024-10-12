@@ -1,6 +1,3 @@
-Die die; // Declare a Die object
-int dieValue; // To hold the total value of the die
-
 void setup() {
     size(200, 200); // Set the window size
     die = new Die(width / 2, height / 2); // Create a Die object
@@ -10,11 +7,19 @@ void setup() {
 void draw() {
     background(255); // Set background color to white
     die.show(); // Show the die
+    displayTotal(); // Display the total value
 }
 
 void mousePressed() {
     die.roll(); // Roll the die on mouse press
     redraw(); // Redraw the window
+}
+
+void displayTotal() {
+    fill(0); // Set color for text
+    textSize(16); // Set text size
+    textAlign(CENTER, CENTER); // Center the text
+    text("Total: " + die.value, width / 2, height / 2 + 50); // Display total value below the die
 }
 
 class Die {
@@ -32,11 +37,38 @@ class Die {
     }
 
     void show() {
-        fill(200); // Set die color
-        rect(x - 25, y - 25, 50, 50, 10); // Draw die
-        fill(0); // Set color for text
-        textSize(32); // Set text size
-        textAlign(CENTER, CENTER); // Center the text
-        text(value, x, y); // Display die value
+        fill(255); // Set die color to white
+        rect(x - 25, y - 25, 50, 50, 10); // Draw die face
+
+        // Draw dots based on the die value
+        fill(0); // Set dot color to black
+        if (value == 1) {
+            ellipse(x, y, 10, 10);
+        } else if (value == 2) {
+            ellipse(x - 10, y - 10, 10, 10);
+            ellipse(x + 10, y + 10, 10, 10);
+        } else if (value == 3) {
+            ellipse(x - 10, y - 10, 10, 10);
+            ellipse(x, y, 10, 10);
+            ellipse(x + 10, y + 10, 10, 10);
+        } else if (value == 4) {
+            ellipse(x - 10, y - 10, 10, 10);
+            ellipse(x + 10, y - 10, 10, 10);
+            ellipse(x - 10, y + 10, 10, 10);
+            ellipse(x + 10, y + 10, 10, 10);
+        } else if (value == 5) {
+            ellipse(x - 10, y - 10, 10, 10);
+            ellipse(x + 10, y - 10, 10, 10);
+            ellipse(x, y, 10, 10);
+            ellipse(x - 10, y + 10, 10, 10);
+            ellipse(x + 10, y + 10, 10, 10);
+        } else if (value == 6) {
+            ellipse(x - 10, y - 10, 10, 10);
+            ellipse(x - 10, y, 10, 10);
+            ellipse(x - 10, y + 10, 10, 10);
+            ellipse(x + 10, y - 10, 10, 10);
+            ellipse(x + 10, y, 10, 10);
+            ellipse(x + 10, y + 10, 10, 10);
+        }
     }
 }
