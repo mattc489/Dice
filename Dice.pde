@@ -1,104 +1,42 @@
-int totalDots; // Variable to store the total number of dots
-int dieSize; // Variable for the size of the die
+Die die; // Declare a Die object
+int dieValue; // To hold the total value of the die
 
 void setup() {
-    size(500, 500); // Set a larger size for better visibility
-    textAlign(CENTER, CENTER);
-    noLoop();
-    dieSize = width; // Set die size to cover the whole screen width
+    size(200, 200); // Set the window size
+    die = new Die(width / 2, height / 2); // Create a Die object
+    noLoop(); // Prevent continuous redrawing
 }
 
 void draw() {
-    background(255);
-    Die bob = new Die(0, 0, dieSize); // Position the die at the top-left corner
-    bob.show();
-    totalDots = bob.getDots(); // Get the total dots from the die
-    displayTotalDots(); // Display the total dots
+    background(255); // Set background color to white
+    die.show(); // Show the die
 }
 
 void mousePressed() {
-    redraw();
-}
-
-void displayTotalDots() {
-    fill(0);
-    textSize(32);
-    text("Total Dots: " + totalDots, width / 2, height - 50); // Display total dots
+    die.roll(); // Roll the die on mouse press
+    redraw(); // Redraw the window
 }
 
 class Die {
-    boolean one, two, three, four, five, six;
-    int myX, myY, size;
+    int x, y; // Position of the die
+    int value; // Value of the die (1-6)
 
-    Die(int x, int y, int s) {
-        myX = x;
-        myY = y;
-        size = s; // Set the size of the die
-        roll();
+    Die(int x, int y) { // Constructor
+        this.x = x;
+        this.y = y;
+        roll(); // Roll the die when created
     }
 
     void roll() {
-        one = two = three = four = five = six = false; // Reset
-        int result = (int) (Math.random() * 6) + 1; // Roll the die
-        switch (result) {
-            case 1: one = true; break;
-            case 2: two = true; break;
-            case 3: three = true; break;
-            case 4: four = true; break;
-            case 5: five = true; break;
-            case 6: six = true; break;
-        }
-    }
-
-    int getDots() {
-        if (one) return 1;
-        if (two) return 2;
-        if (three) return 3;
-        if (four) return 4;
-        if (five) return 5;
-        if (six) return 6;
-        return 0; // Fallback (should never happen)
+        value = (int) random(1, 7); // Random value between 1 and 6
     }
 
     void show() {
-        noStroke();
-        fill(255);
-        rect(myX, myY, size, size); // Draw the die
-        stroke(0); // Set stroke color for the border
-        noFill();
-        rect(myX, myY, size, size); // Draw a border around the die
-
-        float dotSize = size * 0.1; // Calculate dot size based on die size
-
-        // Draw the dots based on the die face value
-        fill(0); // Set dot color to black
-        if (one) {
-            ellipse(myX + size / 2, myY + size / 2, dotSize, dotSize);
-        } else if (two) {
-            ellipse(myX + size * 0.2, myY + size * 0.2, dotSize, dotSize);
-            ellipse(myX + size * 0.8, myY + size * 0.8, dotSize, dotSize);
-        } else if (three) {
-            ellipse(myX + size * 0.2, myY + size * 0.8, dotSize, dotSize);
-            ellipse(myX + size * 0.8, myY + size * 0.2, dotSize, dotSize);
-            ellipse(myX + size / 2, myY + size / 2, dotSize, dotSize);
-        } else if (four) {
-            ellipse(myX + size * 0.2, myY + size * 0.2, dotSize, dotSize);
-            ellipse(myX + size * 0.8, myY + size * 0.8, dotSize, dotSize);
-            ellipse(myX + size * 0.8, myY + size * 0.2, dotSize, dotSize);
-            ellipse(myX + size * 0.2, myY + size * 0.8, dotSize, dotSize);
-        } else if (five) {
-            ellipse(myX + size * 0.2, myY + size * 0.2, dotSize, dotSize);
-            ellipse(myX + size * 0.8, myY + size * 0.8, dotSize, dotSize);
-            ellipse(myX + size * 0.8, myY + size * 0.2, dotSize, dotSize);
-            ellipse(myX + size * 0.2, myY + size * 0.8, dotSize, dotSize);
-            ellipse(myX + size / 2, myY + size / 2, dotSize, dotSize);
-        } else if (six) {
-            ellipse(myX + size * 0.2, myY + size * 0.2, dotSize, dotSize);
-            ellipse(myX + size * 0.8, myY + size * 0.8, dotSize, dotSize);
-            ellipse(myX + size * 0.8, myY + size * 0.2, dotSize, dotSize);
-            ellipse(myX + size * 0.2, myY + size * 0.8, dotSize, dotSize);
-            ellipse(myX + size * 0.2, myY + size / 2, dotSize, dotSize);
-            ellipse(myX + size * 0.8, myY + size / 2, dotSize, dotSize);
-        }
+        fill(200); // Set die color
+        rect(x - 25, y - 25, 50, 50, 10); // Draw die
+        fill(0); // Set color for text
+        textSize(32); // Set text size
+        textAlign(CENTER, CENTER); // Center the text
+        text(value, x, y); // Display die value
     }
 }
