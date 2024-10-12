@@ -27,8 +27,8 @@ class Die {
     int value; 
 
     Die(int x, int y) { 
-        die.x = x;
-        die.y = y;
+        this.x = x;
+        this.y = y;
         roll(); 
     }
 
