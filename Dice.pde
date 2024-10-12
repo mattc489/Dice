@@ -1,5 +1,5 @@
 void setup() {
-    size(200, 200); 
+    size(400, 400); 
     die = new Die(width / 2, height / 2); 
     noLoop(); 
 }
@@ -45,30 +45,30 @@ class Die {
         if (value == 1) {
             ellipse(x, y, 10, 10);
         } else if (value == 2) {
-            ellipse(x - 10, y - 10, 10, 10);
-            ellipse(x + 10, y + 10, 10, 10);
+            ellipse(x - 20, y - 10, 10, 10);
+            ellipse(x + 20, y + 10, 10, 10);
         } else if (value == 3) {
-            ellipse(x - 10, y - 10, 10, 10);
+            ellipse(x - 20, y - 20, 10, 10);
             ellipse(x, y, 10, 10);
             ellipse(x + 10, y + 10, 10, 10);
         } else if (value == 4) {
-            ellipse(x - 10, y - 10, 10, 10);
-            ellipse(x + 10, y - 10, 10, 10);
-            ellipse(x - 10, y + 10, 10, 10);
-            ellipse(x + 10, y + 10, 10, 10);
+            ellipse(x - 20, y - 20, 10, 10);
+            ellipse(x + 20, y - 20, 10, 10);
+            ellipse(x - 20, y + 20, 10, 10);
+            ellipse(x + 20, y + 20, 10, 10);
         } else if (value == 5) {
-            ellipse(x - 10, y - 10, 10, 10);
-            ellipse(x + 10, y - 10, 10, 10);
+            ellipse(x - 20, y - 20, 10, 10);
+            ellipse(x + 20, y - 20, 10, 10);
             ellipse(x, y, 10, 10);
-            ellipse(x - 10, y + 10, 10, 10);
-            ellipse(x + 10, y + 10, 10, 10);
+            ellipse(x - 20, y + 20, 10, 10);
+            ellipse(x + 20, y + 20, 10, 10);
         } else if (value == 6) {
-            ellipse(x - 10, y - 10, 10, 10);
-            ellipse(x - 10, y, 10, 10);
-            ellipse(x - 10, y + 10, 10, 10);
-            ellipse(x + 10, y - 10, 10, 10);
-            ellipse(x + 10, y, 10, 10);
-            ellipse(x + 10, y + 10, 10, 10);
+            ellipse(x - 20, y - 20, 10, 10);
+            ellipse(x - 20, y, 20, 10);
+            ellipse(x - 20, y + 20, 10, 10);
+            ellipse(x + 20, y - 20, 10, 10);
+            ellipse(x + 20, y, 20, 10);
+            ellipse(x + 20, y + 20, 10, 10);
         }
     }
 }
