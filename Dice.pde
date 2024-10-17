@@ -1,4 +1,7 @@
 int Total=0;
+int r=(int)(Math.random()*256);
+int g=(int)(Math.random()*256);
+int b=(int)(Math.random()*256);
 void setup()
 	{
 	    noLoop();
