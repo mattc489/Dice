@@ -62,8 +62,8 @@ class Die
       ellipse(myX+pos3, myY+pos3,20,20);
     }else if(value==4){
       ellipse(myX+pos1, myY+pos1,20,20);
-      ellipse(myX+pos3, myY+pos3,20,20);
-      ellipse(myX+pos1, myY+pos1,20,20);
+      ellipse(myX+pos3, myY+pos1,20,20);
+      ellipse(myX+pos1, myY+pos3,20,20);
        ellipse(myX+pos3, myY+pos3,20,20);
     }else if(value==5){
       ellipse(myX+pos2, myY+pos2,20,20);
