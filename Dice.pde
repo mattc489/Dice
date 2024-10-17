@@ -1,4 +1,8 @@
-  void setup()
+int Total=0;
+int r=(int)(Math.random()*256);
+  int g=(int)(Math.random()*256);
+  int b=(int)(Math.random()*256);
+void setup()
 	{
 	    noLoop();
  size(1000,1000);
@@ -15,7 +19,7 @@
 }
 	}
  textSize(100);
-   text(("Total"+Total+"), 0, 950);
+text("Total: " + Total, 0, 950);
 }
 	void mousePressed()
 	{
