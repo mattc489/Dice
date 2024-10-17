@@ -1,74 +1,83 @@
-void setup() {
-    size(100, 100); 
-    die = new Die(width / 2, height / 2); 
-    noLoop(); 
+int Total;
+int r=(int)(Math.random()*256);
+int g=(int)(Math.random()*256);
+int b=(int)(Math.random()*256);
+void setup()
+{
+  noLoop();
+  size(1000,1000);
 }
-
-void draw() {
-    background(255); 
-    die.show(); 
-    displayTotal();
-}
-
-void mousePressed() {
-    die.roll(); 
-    redraw(); 
-}
-
-void displayTotal() {
-    fill(0); 
-    textSize(16); 
-    textAlign(CENTER, CENTER); 
-    text("Total: " + die.value, width / 2, height / 2 + 50); 
-}
-
-class Die {
-    int x, y; 
-    int value; 
-
-    Die(int x, int y) { 
-        this.x = x;
-        this.y = y;
-        roll(); 
+void draw()
+{
+  background(r,g,b);
+  Total=0;
+  for(int x=0; x<1000; x+=100){
+    for(int y=0;y<800;y+=100) {
+      Die bob = new Die(x,y);
+      bob.show();
+      Total+=bob.value;
     }
-
-    void roll() {
-        value = (int) random(1, 7);
+  }
+   textSize(100);
+   text(("Total"+Total+"), 0, 950);
+}
+void mousePressed()
+{
+  setup();
+  redraw();
+}
+class Die
+{
+  public int value;
+  int myX,myY;
+  int pos1=25;
+  int pos2=50;
+  int pos3=75;
+  int r=(int)(Math.random()*256);
+  int g=(int)(Math.random()*256);
+  int b=(int)(Math.random()*256);
+  Die(int x, int y)
+  {
+    roll();
+    myX=x;
+    myY=y;
+  }
+  void roll()
+  {
+    value = (int)((Math.random()*6)+1);
+  }
+  void show()
+  {
+    fill(r,g,b);
+    rect(myX,myY,100,100);
+    fill(0,0,0);
+    if(value==1){
+      ellipse(myX+pos2, myY+pos2,20,20);
+    }else if(value==2){
+      ellipse(myX+pos1, myY+pos1,20,20);
+      ellipse(myX+pos3, myY+pos3,20,20);
+    }else if(value==3){
+      ellipse(myX+pos1, myY+pos1,20,20);
+      ellipse(myX+pos2, myY+pos2,20,20);
+      ellipse(myX+pos3, myY+pos3,20,20);
+    }else if(value==4){
+      ellipse(myX+pos1, myY+pos1,20,20);
+      ellipse(myX+pos3, myY+pos3,20,20);
+      ellipse(myX+pos1, myY+pos1,20,20);
+       ellipse(myX+pos3, myY+pos3,20,20);
+    }else if(value==5){
+      ellipse(myX+pos2, myY+pos2,20,20);
+      ellipse(myX+pos1, myY+pos1,20,20);
+      ellipse(myX+pos3, myY+pos1,20,20);
+       ellipse(myX+pos1, myY+pos3,20,20);
+       ellipse(myX+pos3, myY+pos3,20,20);
+    }else if(value==6){
+      ellipse(myX+pos1, myY+pos1,20,20);
+      ellipse(myX+pos3, myY+pos1,20,20);
+      ellipse(myX+pos1, myY+pos3,20,20);
+      ellipse(myX+pos3, myY+pos3,20,20);
+      ellipse(myX+pos1, myY+pos2,20,20);
+      ellipse(myX+pos3, myY+pos2,20,20);
     }
-
-    void show() {
-        fill(255); 
-        rect(x - 25, y - 25, 50, 50, 10);
-
-        
-        fill(0); 
-        if (value == 1) {
-            ellipse(x, y, 10, 10);
-        } else if (value == 2) {
-            ellipse(x - 20, y - 20, 10, 10);
-            ellipse(x + 20, y + 20, 10, 10);
-        } else if (value == 3) {
-            ellipse(x - 20, y - 20, 10, 10);
-            ellipse(x, y, 10, 10);
-            ellipse(x + 20, y + 20, 10, 10);
-        } else if (value == 4) {
-            ellipse(x - 20, y - 20, 10, 10);
-            ellipse(x + 20, y - 20, 10, 10);
-            ellipse(x - 20, y + 20, 10, 10);
-            ellipse(x + 20, y + 20, 10, 10);
-        } else if (value == 5) {
-            ellipse(x - 20, y - 20, 10, 10);
-            ellipse(x + 20, y - 20, 10, 10);
-            ellipse(x, y, 10, 10);
-            ellipse(x - 20, y + 20, 10, 10);
-            ellipse(x + 20, y + 20, 10, 10);
-        } else if (value == 6) {
-            ellipse(x - 20, y - 20, 10, 10);
-            ellipse(x - 20, y, 20, 10);
-            ellipse(x - 20, y + 20, 10, 10);
-            ellipse(x + 20, y - 20, 10, 10);
-            ellipse(x + 20, y, 20, 10);
-            ellipse(x + 20, y + 20, 10, 10);
-        }
-    }
+  }
 }
