@@ -19,7 +19,7 @@ void setup()
 }
 	}
  textSize(100);
-text("Total: " + Total, 0, 950);
+text("Total: " + Total, 250, 950);
 }
 	void mousePressed()
 	{
@@ -57,32 +57,32 @@ text("Total: " + Total, 0, 950);
     rect(myX,myY,100,100);
     fill(0,0,0);
     if(value==1){
-      ellipse(myX+pos2, myY+pos2,20,20);
+      ellipse(myX+pos2, myY+pos2,50,50);
     }else if(value==2){
-      ellipse(myX+pos1, myY+pos1,20,20);
-      ellipse(myX+pos3, myY+pos3,20,20);
+      ellipse(myX+pos1, myY+pos1,50,50);
+      ellipse(myX+pos3, myY+pos3,50,50);
     }else if(value==3){
-      ellipse(myX+pos1, myY+pos1,20,20);
-      ellipse(myX+pos2, myY+pos2,20,20);
-      ellipse(myX+pos3, myY+pos3,20,20);
+      ellipse(myX+pos1, myY+pos1,50,50);
+      ellipse(myX+pos2, myY+pos2,50,50);
+      ellipse(myX+pos3, myY+pos3,50,50);
     }else if(value==4){
-      ellipse(myX+pos1, myY+pos1,20,20);
-      ellipse(myX+pos3, myY+pos1,20,20);
-      ellipse(myX+pos1, myY+pos3,20,20);
-       ellipse(myX+pos3, myY+pos3,20,20);
+      ellipse(myX+pos1, myY+pos1,50,50);
+      ellipse(myX+pos3, myY+pos1,50,50);
+      ellipse(myX+pos1, myY+pos3,50,50);
+       ellipse(myX+pos3, myY+pos3,50,50);
     }else if(value==5){
-      ellipse(myX+pos2, myY+pos2,20,20);
-      ellipse(myX+pos1, myY+pos1,20,20);
-      ellipse(myX+pos3, myY+pos1,20,20);
-       ellipse(myX+pos1, myY+pos3,20,20);
-       ellipse(myX+pos3, myY+pos3,20,20);
+      ellipse(myX+pos2, myY+pos2,50,50);
+      ellipse(myX+pos1, myY+pos1,50,50);
+      ellipse(myX+pos3, myY+pos1,50,50);
+       ellipse(myX+pos1, myY+pos3,50,50);
+       ellipse(myX+pos3, myY+pos3,50,50);
     }else if(value==6){
-      ellipse(myX+pos1, myY+pos1,20,20);
-      ellipse(myX+pos3, myY+pos1,20,20);
-      ellipse(myX+pos1, myY+pos3,20,20);
-      ellipse(myX+pos3, myY+pos3,20,20);
-      ellipse(myX+pos1, myY+pos2,20,20);
-      ellipse(myX+pos3, myY+pos2,20,20);
+      ellipse(myX+pos1, myY+pos1,50,50);
+      ellipse(myX+pos3, myY+pos1,50,50);
+      ellipse(myX+pos1, myY+pos3,50,50);
+      ellipse(myX+pos3, myY+pos3,50,50);
+      ellipse(myX+pos1, myY+pos2,50,50);
+      ellipse(myX+pos3, myY+pos2,50,50);
       }
 	    }
 	}
