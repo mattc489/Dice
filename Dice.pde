@@ -1,34 +1,31 @@
-int Total;
-int r=(int)(Math.random()*256);
-int g=(int)(Math.random()*256);
-int b=(int)(Math.random()*256);
-void setup()
-{
-  noLoop();
-  size(1000,1000);
-}
-void draw()
-{
-  background(r,g,b);
+  void setup()
+	{
+	    noLoop();
+ size(1000,1000);
+	}
+	void draw()
+	{
+	    background(r,g,b);
   Total=0;
   for(int x=0; x<1000; x+=100){
     for(int y=0;y<800;y+=100) {
       Die bob = new Die(x,y);
       bob.show();
       Total+=bob.value;
-    }
-  }
-   textSize(100);
+}
+	}
+ textSize(100);
    text(("Total"+Total+"), 0, 950);
 }
-void mousePressed()
-{
-  setup();
+	void mousePressed()
+	{
+ setup();
   redraw();
-}
-class Die
-{
-  public int value;
+
+	}
+	class Die //models one single dice cube
+	{
+	    public int value;
   int myX,myY;
   int pos1=25;
   int pos2=50;
@@ -36,19 +33,23 @@ class Die
   int r=(int)(Math.random()*256);
   int g=(int)(Math.random()*256);
   int b=(int)(Math.random()*256);
-  Die(int x, int y)
-  {
-    roll();
+
+	    
+	    Die(int x, int y) //constructor
+	    {
+	       roll();
     myX=x;
     myY=y;
-  }
-  void roll()
-  {
-    value = (int)((Math.random()*6)+1);
-  }
-  void show()
-  {
-    fill(r,g,b);
+
+	    }
+	    void roll()
+	    {
+	        value = (int)((Math.random()*6)+1);
+
+	    }
+	    void show()
+	    {
+	        fill(r,g,b);
     rect(myX,myY,100,100);
     fill(0,0,0);
     if(value==1){
@@ -78,6 +79,6 @@ class Die
       ellipse(myX+pos3, myY+pos3,20,20);
       ellipse(myX+pos1, myY+pos2,20,20);
       ellipse(myX+pos3, myY+pos2,20,20);
-    }
-  }
-}
+      }
+	    }
+	}
