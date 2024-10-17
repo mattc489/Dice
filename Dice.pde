@@ -31,7 +31,9 @@ text("Total: " + Total, 250, 950);
   int pos1=25;
   int pos2=50;
   int pos3=75;
-
+int r=(int)(Math.random()*256);
+int g=(int)(Math.random()*256);
+int b=(int)(Math.random()*256);
 	    
 	    Die(int x, int y) //constructor
 	    {
