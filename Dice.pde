@@ -34,9 +34,6 @@ text("Total: " + Total, 250, 950);
   int pos1=25;
   int pos2=50;
   int pos3=75;
-  int r=(int)(Math.random()*256);
-  int g=(int)(Math.random()*256);
-  int b=(int)(Math.random()*256);
 
 	    
 	    Die(int x, int y) //constructor
@@ -57,32 +54,32 @@ text("Total: " + Total, 250, 950);
     rect(myX,myY,100,100);
     fill(0,0,0);
     if(value==1){
-      ellipse(myX+pos2, myY+pos2,50,50);
+      ellipse(myX+pos2, myY+pos2,25,25);
     }else if(value==2){
-      ellipse(myX+pos1, myY+pos1,50,50);
-      ellipse(myX+pos3, myY+pos3,50,50);
+      ellipse(myX+pos1, myY+pos1,25,25);
+      ellipse(myX+pos3, myY+pos3,25,25);
     }else if(value==3){
-      ellipse(myX+pos1, myY+pos1,50,50);
-      ellipse(myX+pos2, myY+pos2,50,50);
-      ellipse(myX+pos3, myY+pos3,50,50);
+      ellipse(myX+pos1, myY+pos1,25,25);
+      ellipse(myX+pos2, myY+pos2,25,25);
+      ellipse(myX+pos3, myY+pos3,25,25);
     }else if(value==4){
-      ellipse(myX+pos1, myY+pos1,50,50);
-      ellipse(myX+pos3, myY+pos1,50,50);
-      ellipse(myX+pos1, myY+pos3,50,50);
-       ellipse(myX+pos3, myY+pos3,50,50);
+      ellipse(myX+pos1, myY+pos1,25,25);
+      ellipse(myX+pos3, myY+pos1,25,25);
+      ellipse(myX+pos1, myY+pos3,25,25);
+       ellipse(myX+pos3, myY+pos3,25,25);
     }else if(value==5){
-      ellipse(myX+pos2, myY+pos2,50,50);
-      ellipse(myX+pos1, myY+pos1,50,50);
-      ellipse(myX+pos3, myY+pos1,50,50);
-       ellipse(myX+pos1, myY+pos3,50,50);
-       ellipse(myX+pos3, myY+pos3,50,50);
+      ellipse(myX+pos2, myY+pos2,25,25);
+      ellipse(myX+pos1, myY+pos1,25,25);
+      ellipse(myX+pos3, myY+pos1,25,25);
+       ellipse(myX+pos1, myY+pos3,25,25);
+       ellipse(myX+pos3, myY+pos3,25,25);
     }else if(value==6){
-      ellipse(myX+pos1, myY+pos1,50,50);
-      ellipse(myX+pos3, myY+pos1,50,50);
-      ellipse(myX+pos1, myY+pos3,50,50);
-      ellipse(myX+pos3, myY+pos3,50,50);
-      ellipse(myX+pos1, myY+pos2,50,50);
-      ellipse(myX+pos3, myY+pos2,50,50);
+      ellipse(myX+pos1, myY+pos1,25,25);
+      ellipse(myX+pos3, myY+pos1,25,25);
+      ellipse(myX+pos1, myY+pos3,25,25);
+      ellipse(myX+pos3, myY+pos3,25,25);
+      ellipse(myX+pos1, myY+pos2,25,25);
+      ellipse(myX+pos3, myY+pos2,25,25);
       }
 	    }
 	}
