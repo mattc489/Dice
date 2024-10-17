@@ -5,7 +5,7 @@ int r=(int)(Math.random()*256);
 void setup()
 	{
 	    noLoop();
- size(500,500);
+ size(1000,1000);
 	}
 	void draw()
 	{
